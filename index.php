@@ -10,7 +10,7 @@ $status = "";
 
 if ( isset($_POST["form"]) ) {
 
-    if ( validate(...$_POST) ) {
+    if ( validate($name, $email, $subject, $message, $form) ) {
         
         $name = $_POST["name"];
         $email = $_POST["email"];
