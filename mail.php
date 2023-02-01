@@ -11,14 +11,15 @@ function sendMail($subject, $body, $email, $name, $html = false) {
     $phpmailer->isSMTP();
     $phpmailer->Host = 'smtp.gmail.com';
     $phpmailer->SMTPAuth = true;
-    $phpmailer->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+    $phpmailer->SMTPSecure = 'ssl';
     $phpmailer->Port = 465;
     $phpmailer->Username = 'jorgeserviciosinmobiliarios@gmail.com';
     $phpmailer->Password = 'yphvdqcwjalrqxar';
 
     //  Añadiendo destinatarios
-    $phpmailer->setFrom($email, $name);
-    $phpmailer->addAddress($email, $name); 
+    $phpmailer->setFrom('jorgeserviciosinmobiliarios@gmail.com', 'Ricardo Dev');
+    $phpmailer->addAddress('rdjorge@live.com.ar'); 
+
 
     // Definiendo el contenido de mi email
     $phpmailer->isHTML($html);                                  //Set email format to HTML
@@ -27,7 +28,6 @@ function sendMail($subject, $body, $email, $name, $html = false) {
 
     // Mandar el correo
     $phpmailer->send();
-    
 }
 
 ?>
